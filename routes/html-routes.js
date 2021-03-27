@@ -10,7 +10,7 @@ router.get("/", function(req,res){
 //goes to endpoint "/notes", creates function with request n response
 router.get("/note", function(req,res){
     //returns response, creates path with current dir,with public folder, and notes.html is displayed
-    res.sendFile(path.join(__dirname,"../public/note.html"));
+    res.sendFile(path.join(__dirname,"../public/notes.html"));
 });
 
 module.exports = router;

@@ -4,7 +4,7 @@ const store = require("../db/store.js");
 const notes = "";
 // API routes
 //get all notes
-router.get("/note", function(req,res){
+router.get("/notes", function(req,res){
  // retrieve all notes and res.json them back to front end;
     // read contents of dbjson send them to user
     // fs.promises.readFile("./db/db.json", "utf8", function(err,data){
@@ -20,7 +20,7 @@ router.get("/note", function(req,res){
         .catch(err => res.status(500).json(err))
 });
 
-router.post("/note", function(req,res){
+router.post("/notes", function(req,res){
     console.log(req.body)
     store.saveNote(req.body)
     .then(notes => res.json(notes))
@@ -52,7 +52,7 @@ router.post("/note", function(req,res){
 //     res.json(note);
 });
 
-router.delete("/note/:id", function (req, res){
+router.delete("/notes/:id", function (req, res){
     //Delete a note based off id
     fs.readFile(__dirname + "/db/db.json", 'utf8', function (err, data) {   
         if (err) throw err      
@@ -61,7 +61,7 @@ router.delete("/note/:id", function (req, res){
         const newNotes = notes.filter((note) => note.id !== +id);       
         fs.writeFile(__dirname + '/db/db.json', JSON.stringify(newNotes), function (err, data) {             
             if (err) throw err
-            res.end("I hope it worked")         
+            res.end("hoping fot return")         
         });     
     });
 });

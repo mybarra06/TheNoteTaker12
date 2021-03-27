@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 8000;//grabs port
 // const path = require("path");
 // const fs = require("fs");
 // const notes = [];
-const htmlRoutes = require("./routes/html-routes");
-const apiRoutes = require("./routes/api-routes")
+const htmlRoutes = require("./routes/html-routes.js");
+const apiRoutes = require("./routes/api-routes.js")
 
 
 app.use("/", htmlRoutes);
