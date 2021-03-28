@@ -1,7 +1,7 @@
 const util = require("util");
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
-let myuuid = uuidv4();
+
 
 // define read file and write file async functions
 const readFileAsync = util.promisify(fs.readFile);
@@ -10,11 +10,11 @@ const writeFileAsync = util.promisify(fs.writeFile);
 class Store {
     // read note -- from database, not doing anything to client
     read() {
-        return readFileAsync("db/db.json", "utf-8");
+        return readFileAsync("./db/db.json", "utf-8");
     }
     // write note -- not handling client
     write(note) {
-        return writeFileAsync("db/db.json", JSON.stringify(note));
+        return writeFileAsync("./db/db.json", JSON.stringify(note));
     }
 
     // get all notes
