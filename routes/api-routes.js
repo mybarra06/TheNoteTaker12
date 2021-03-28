@@ -5,15 +5,7 @@ const notes = "";
 // API routes
 //get all notes
 router.get("/notes", function(req,res){
- // retrieve all notes and res.json them back to front end;
-    // read contents of dbjson send them to user
-    // fs.promises.readFile("./db/db.json", "utf8", function(err,data){
-    //    res.json(JSON.parse(data)); 
-    // })
-    // .catch((error) => {
-    //     console.error(error);
-    //        });
-    // res.json(notes); 
+
     console.log(res)
     store.getNotes()
         .then(notes => res.json(notes))
@@ -27,7 +19,7 @@ router.post("/notes", function(req,res){
     .catch(err => res.status(500).json(err))
 //     //creates a note from req.body; save note
 //     const note = {
-//         id: uuidv4(),
+//         id: uuids4(),
 //         title: req.body.title,
 //         text: req.body.text,
     // }
@@ -65,4 +57,14 @@ router.delete("/notes/:id", function (req, res){
         });     
     });
 });
-module.exports = router;
+module.exports = router; 
+
+// retrieve all notes and res.json them back to front end;
+    // read contents of dbjson send them to user
+    // fs.promises.readFile("./db/db.json", "utf8", function(err,data){
+    //    res.json(JSON.parse(data)); 
+    // })
+    // .catch((error) => {
+    //     console.error(error);
+    //        });
+    // res.json(notes); 
